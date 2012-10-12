@@ -29,7 +29,11 @@ app.get('/', function(req, res){
     res.render('index');
 });
 
-app.get('/posts', function(req, res){
+app.post('/posts/add', function(req, res){
+    console.log("new post was saved in DB");
+});
+
+app.get('/posts/list', function(req, res){
     res.send(posts);
 });
 
