@@ -10,5 +10,24 @@
     <script type="text/javascript" src="/static/index.js"></script>
 </head>
 <body>
+    <section id="posts"></section>
+
+    <script type="text/template" id="PostTemplate">
+    <article>
+        <h6>{{title}}</h6>
+        <div>{{desc}}</div>
+        <time>{{time}}</time>
+    </article>
+    </script>
+
+    <script type="text/template" id="PostArrayTemplate">
+    {{#list}}
+    <article>
+        <h6>{{title}}</h6>
+        <div>{{desc}}</div>
+        <time>{{time}}</time>
+    </article>
+    {{/list}}
+    </script>
 </body>
 </html>
