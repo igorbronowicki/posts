@@ -1,3 +1,4 @@
+var db = require('./db');
 var express = require('express');
 var app = express();
 
@@ -9,31 +10,17 @@ app.set('view engine', 'html');
 app.use('/static', express.static(__dirname + '/public'));
 
 
-// Dummy posts
-var posts = [
-    {title: "Title 1", "desc": "xxxxxxxxxxxxxxxxx"},
-    {title: "Title 2", "desc": "xxxxxxxxxxxxxxxxx"},
-    {title: "Title 3", "desc": "xxxxxxxxxxxxxxxxx"},
-    {title: "Title 4", "desc": "xxxxxxxxxxxxxxxxx"},
-    {title: "Title 5", "desc": "xxxxxxxxxxxxxxxxx"},
-    {title: "Title 6", "desc": "xxxxxxxxxxxxxxxxx"},
-    {title: "Title 7", "desc": "xxxxxxxxxxxxxxxxx"},
-    {title: "Title 8", "desc": "xxxxxxxxxxxxxxxxx"},
-    {title: "Title 9", "desc": "xxxxxxxxxxxxxxxxx"},
-    {title: "Title 10", "desc": "xxxxxxxxxxxxxxxxx"}
-];
-
-
 // routes
 app.get('/', function(req, res){
     res.render('index');
 });
 
 app.post('/posts/add', function(req, res){
-    console.log("new post was saved in DB");
+    db.savePost();
 });
 
 app.get('/posts/list', function(req, res){
+    var posts = db.getPosts();
     res.send(posts);
 });
 
