@@ -1,5 +1,4 @@
 exports.getPosts = function() {
-    console.log();
     if (Math.floor(Math.random()*11)%2) {
         return [
             {id: 1, title: "Title One", "desc": "xxxxxxxxxxxxxxxxx"},
