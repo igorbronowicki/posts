@@ -1,3 +1,4 @@
+var lessMiddleware = require('less-middleware');
 var db = require('./db');
 var express = require('express');
 var app = express();
@@ -7,6 +8,12 @@ var app = express();
 app.engine('html', require('ejs').__express);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'html');
+app.use(lessMiddleware({
+        force: true,
+        src: __dirname + '/public',
+        prefix: '/static',
+        compress: true
+    }));
 app.use('/static', express.static(__dirname + '/public'));
 
 

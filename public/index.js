@@ -42,27 +42,17 @@ $(function(){
         },
         initialize: function () { // Подписка на событие обновления коллекции
             //TODO: this.model.bind('change', this.render, this);
-            //TODO: this.collection.bind('change', this.render, this);
+            this.collection.bind('reset', this.render, this);
         },
     });
 
     window.posts = new PostCollection;
     posts.fetch({
         success: function(){
-            var postsView = new PostsView({model: posts.getByCid("c4"), collection: posts});
-            postsView.render();
+            window.postsView = new PostsView({model: posts.getByCid("c4"), collection: posts});
+            //TODO: window.postsView = new PostsView({model: posts.get(2), collection: posts});
+            window.postsView.render();
         },
         error: function(){ console.log("Some shit happens."); }
     });
 });
-
-
-
-
-
-
-
-/*
-var a = new PostModel({"title":"ololo", "desc":"trololo"});
-a.save();
-*/
