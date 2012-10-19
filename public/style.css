@@ -1,0 +1,12 @@
+#posts {
+    width: 500px;
+    margin: 0 auto;
+}
+#posts article {
+    background: #cef4d0;
+    margin-bottom: 1em;
+    font: 12px Verdana, Geneva, sans-serif;
+}
+#posts article h6 {
+    margin: 0 0 .3em 0;
+}
